@@ -5,13 +5,17 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const app = express();
 const router = require('./router');
+const mongoose = require('mongoose');
+
+// DB Setup
+mongoose.connect('mongodb://localhost:auth/auth');
 
 // App Setup
-
 // below two lines are middlewares
 app.use(morgan('combined'));    // morgan is a logging tool that outputs any server requests
 app.use(bodyParser.json( { type: '*/*'}));  //parses all incoming requests into json
 router(app);
+
 // Server Setup
 const port = process.env.PORT || 3000
 const server = http.createServer(app);
