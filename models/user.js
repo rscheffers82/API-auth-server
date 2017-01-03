@@ -19,7 +19,7 @@ const userSchema = new Schema({
 // to fix this add lowercase: true
 
 // Create the model class
-const ModelClass = mongoose.model('user, userSchema');
+const ModelClass = mongoose.model('user', userSchema);
 
 // Export the model
 module.exports = ModelClass;

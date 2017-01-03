@@ -14,6 +14,7 @@ mongoose.connect('mongodb://localhost:auth/auth');
 // below two lines are middlewares
 app.use(morgan('combined'));    // morgan is a logging tool that outputs any server requests
 app.use(bodyParser.json( { type: '*/*'}));  //parses all incoming requests into json
+// let our router handle all incoming path requests
 router(app);
 
 // Server Setup
