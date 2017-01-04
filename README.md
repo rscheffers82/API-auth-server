@@ -10,8 +10,8 @@ Use POST requests to the below links to either signup or sign-in a user using JS
 	"password": "mypassword"
 }
 ```
-http://localhost:3000/signup<br>
-http://localhost:3000/signin
+- http://localhost:3000/signup
+- http://localhost:3000/signin
 
 ### Security
 Passwords are encrypted using passport and bcrypt in combination with a secret you need to provide in config.js. See step 4 for requirement. Once a user is logged in, the server provides a token to authenticate them on other secure routes.
@@ -22,10 +22,10 @@ Passwords are encrypted using passport and bcrypt in combination with a secret y
 3. ```npm run dev```
 4. create ```config.js```  in the root folder containing
 ```javascript
-    module.exports = {  
-      secret: 'replace-me-with-your-secret-string-of-chars'
-    };
-    ```
+	module.exports = {  
+  	secret: 'replace-me-with-your-secret-string-of-chars'
+  };
+```
 5. Ensure you have MongoDB running
 6. Create personal routes in [router.js](https://github.com/rscheffers82/server-authentication/blob/master/router.js)
 
