@@ -11,6 +11,15 @@ function tokenForUser(user) {
   return jwt.encode( { sub: user.id, iat: timestamp }, config.secret );
 }
 
+// Because we use passport and authenticate the user using requireSignin
+// passport adds the user object onto the req variable
+exports.signIn = function(req, res, next) {
+  // User's email and password are now authenticated
+  // provide them a token to continue
+  res.send({ token: tokenForUser(req.user) });
+}
+
+// First time visit to the site. sign-up logic
 exports.signUp = function(req, res, next) {
 
   const email = req.body.email;
@@ -44,7 +53,4 @@ exports.signUp = function(req, res, next) {
       res.json({ token: tokenForUser(user) });
     });
   });
-
-
-
 }
